@@ -1,5 +1,7 @@
 package banco;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -13,10 +15,13 @@ public class CadastroConta {
     float saldo;
     boolean status;
 
+    /*
         List<String> listadecontas = new ArrayList<String>();
 	listadecontas.add("CC");
 	listadecontas.add("CP");
-      
+   */
+    
+    
 //Construtor
     /*
     Usar para funcionalidades iniciais
@@ -77,24 +82,44 @@ public class CadastroConta {
         */
         
         //Aqui o Cliente digita o tipo de conta
-        this.setTipoconta(JOptionPane.showInputDialog("Digite o Tipo de Conta\n CC - Conta Corrente \n CP - Conta Poupança"));
-        for(getTipoconta():listadecontas){
         
-    }
-        if (getTipoconta().length() > 2 || getTipoconta().length() < 2) {
-       JOptionPane.showMessageDialog(null,"O Tipo de Conta Digitado %s\n É Invalido!"+this.getTipoconta(),"Tipo de Cohnta",JOptionPane.WARNING_MESSAGE);
-        return;
-        } else {
-            this.setTipoconta(JOptionPane.showInputDialog("Digite o Tipo de Conta\n CC - Conta Corrente \n CP - Conta Poupança"));           
-        }
-
+        String opcao,retorno;
         
-if(var.notEquals("Salvar")){
         
     
+        JOptionPane.showMessageDialog(null,"Digite o Tipo de Conta\n CC - Conta Corrente \n CP - Conta Poupança"); 
+        opcao=JOptionPane.showInputDialog("Digite o Tipo de Conta\n CC - Conta Corrente \n CP - Conta Poupança");         
+        do {
+        JOptionPane.showMessageDialog(null,"Digite o Tipo de Conta\n CC - Conta Corrente \n CP - Conta Poupança"); 
+        opcao=JOptionPane.showInputDialog("Digite o Tipo de Conta\n CC - Conta Corrente \n CP - Conta Poupança");         
         
+        //teste de retorno
+        System.out.println(opcao);
         
-        
+        switch (opcao){
+            
+        //Para Case1 - Conta Corrente
+        case "CC":
+         setTipoconta(opcao);
+         JOptionPane.showMessageDialog(null,"Seu Tipo de Conta Digitado é Corrente \n Conta "+this.getTipoconta(),"Tipo de Conta",JOptionPane.WARNING_MESSAGE);
+            System.out.println(getTipoconta());
+            retorno="ok";
+            break;
+
+            //Para Case2 - Conta Poupança    
+        case "CP":
+         JOptionPane.showMessageDialog(null,"Seu Tipo de Conta Digitado é Poupança \n Conta "+this.getTipoconta(),"Tipo de Conta",JOptionPane.WARNING_MESSAGE);
+            System.out.println(getTipoconta());
+            retorno="ok";
+            break;
+            
+        default:
+        JOptionPane.showMessageDialog(null,"Opção inavalida!"); 
+        retorno="error";
+            break;
+            
+    }
+        }while(retorno != "ok");       
         //Gerador de Numero de Conta
         Random gerarnumconta = new Random();
         this.setNunmConta(gerarnumconta.nextInt(99999));
