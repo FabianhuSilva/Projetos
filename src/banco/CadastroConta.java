@@ -14,7 +14,8 @@ public class CadastroConta {
     String donoconta;
     float saldo;
     boolean status;
-
+  
+    
     /*
         List<String> listadecontas = new ArrayList<String>();
 	listadecontas.add("CC");
